@@ -2,7 +2,7 @@ Dependencies
 ============
 
 * go get -u github.com/astaxie/beego
-* go get -u github.com/astaxie/bee
+* go get -u github.com/beego/bee
 * go get -u github.com/govend/govend
 
 
@@ -16,7 +16,8 @@ if you want to update dependencies
 
 Database
 ========
-Change connection string at config/app.conf to connect to the Redis database
+Change connection string at config/app.conf to connect to the Redis database.
+Current value of host is pointing to the Redis, that was set up in the docker.
 
 
 Run server
@@ -34,3 +35,6 @@ Go to the `docker` directory, using command
 
 and run container, using command
 `docker-compose up --build`
+
+
+Enjoy the API on address http://localhost:8081

@@ -10,10 +10,8 @@ EXPOSE ${PORT}
 # Install selected extensions and other stuff
 #
 RUN go get -u github.com/astaxie/beego
-RUN go get -u github.com/astaxie/bee
+RUN go get -u github.com/beego/bee
 RUN go get -u github.com/govend/govend
-#RUN govend
-RUN go build -v
-
+RUN govend
 
 CMD ["bee", "run"]

@@ -11,16 +11,18 @@ services:
 
 
 #PHP
-  api-php-fpm:
+  api-application:
     build:
       context: .
       dockerfile: application/Dockerfile
       args:
-          - PROJECT_PATH="/go/src/app"
+          - PROJECT_PATH=/go/src/tournamentAPI
           - PUID=1000
     container_name: api-application
+    ports:
+      - "8081:8081"
     volumes:
-      - ..:/go/src/app
+      - ..:/go/src/tournamentAPI
     depends_on:
       - api-redis
 
