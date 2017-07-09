@@ -1,0 +1,26 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+
+version: '2'
+services:
+#REDIS
+  api-redis:
+    image: phpdockerio/redis:latest
+    container_name: api-redis
+
+
+#PHP
+  api-php-fpm:
+    build:
+      context: .
+      dockerfile: application/Dockerfile
+      args:
+          - PROJECT_PATH="/go/src/app"
+          - PUID=1000
+    container_name: api-application
+    volumes:
+      - ..:/go/src/app
+    depends_on:
+      - api-redis
+
